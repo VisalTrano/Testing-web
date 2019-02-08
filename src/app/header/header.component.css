@@ -1,0 +1,21 @@
+.navbar{
+
+    font-family: Lora;
+    font-size: 20px;
+}
+.site-logo img{
+    height: auto;
+    width: 165px !important;
+}
+.navbar-collapse{
+    display: inline-block;
+
+    margin:2px 2px;
+}
+.nav-item nav-button{
+    background-color: blue;
+}
+button{
+    background-color: transparent;
+    border: none;
+}

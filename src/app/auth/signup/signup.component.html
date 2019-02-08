@@ -1,0 +1,97 @@
+<div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+    <div fxFlex="30" class="compact-sidebar fit-content" fxLayout="column" ngClass.xs="fit-content">
+        <div class="dashboard-logo">
+            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/102677387/original/997591801d8147666d156287f9c60070ad6e9127/design-unique-and-stylish-logo.jpg"
+                 alt="Capstone">
+        </div>
+        <div class="page-header">
+            <div class="inner">
+                <div class="page-header">
+                    <h1 class="primary">Register</h1>
+                    <p class="secondary">Fill the registration form to get started.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="compact-body" fxFlex="70">
+        <section class="signup-form">
+            <form fxLayout="column" fxLayoutGap="10px">
+                <h3 class="title">About Yourself</h3>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>First Name</mat-label>
+                        <input type="text" matInput placeholder="Input your First Name" ngModel required
+                               name="firstName">
+                        <mat-error>Field must no empty</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" matInput placeholder="Input your Last Name" ngModel required name="lastName">
+                        <mat-error>Field must no empty</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+                    <mat-form-field appearance="outline" fxFlex="100">
+                        <mat-label>Biographical Info</mat-label>
+                        <textarea rows="5" matInput placeholder="Tell us something about you." ngModel
+                                  name="biographicalInfo"
+                                  #bioInput="ngModel" maxlength="250"></textarea>
+                        <mat-hint align="end">{{bioInput.value?.length}}/250</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <h3 class="title">Account Details</h3>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>Role</mat-label>
+                        <mat-select placeholder="Choose role" required name="selectRole">
+                            <mat-option *ngFor="let role of roles" [value]="role.id">
+                                {{role.value}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>Field must no empty</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput type="email" placeholder="Your email" ngModel name="email" email required
+                               #emailInput="ngModel">
+                        <mat-error *ngIf="emailInput.hasError('required')">Field must no empty</mat-error>
+                        <mat-error *ngIf="!emailInput.hasError('required')">E-mail is invalid.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>Website</mat-label>
+                        <input type="text" matInput placeholder="Your website or social media" ngModel name="website">
+                        <mat-error>Field must no empty</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput placeholder="Should be at least 8 characters long" ngModel
+                               name="password" required minlength="8">
+                        <mat-error>Field must no empty</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+
+                    <mat-form-field appearance="outline" fxFlex="50">
+                        <mat-label>Repeat Password</mat-label>
+                        <input type="password" matInput placeholder="Should be at least 8 characters long" ngModel
+                               name="repeatPassword" required>
+                        <mat-error>Field must no empty</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <mat-checkbox ngModel name="agree" require>Send These Credentials Via Email</mat-checkbox>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+
+                    <button fxFlex="50" type="submit" mat-raised-button color="primary">Register</button>
+                </div>
+
+            </form>
+        </section>
+    </div>
+
+</div>
+

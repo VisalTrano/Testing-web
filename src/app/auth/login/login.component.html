@@ -1,0 +1,52 @@
+<div class="content" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+    <div fxFlex="30" class="compact-sidebar fit-content" fxLayout="column">
+        <div class="dashboard-logo">
+            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/102677387/original/997591801d8147666d156287f9c60070ad6e9127/design-unique-and-stylish-logo.jpg"
+                 alt="Capstone">
+        </div>
+        <div class="page-header">
+            <div class="inner">
+                <div class="page-header">
+                    <h1 class="primary">Register</h1>
+                    <p class="secondary">Fill the registration form to get started.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="compact-body" fxFlex="70">
+        <section class="signup-form">
+            <form fxLayout="column" fxLayoutGap="10px">
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+                    <mat-form-field fxFlex="70" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" placeholder="Your email" ngModel name="email" email required
+                               #emailInput="ngModel">
+                        <mat-error *ngIf="emailInput.hasError('required')">Field must no empty</mat-error>
+                        <mat-error *ngIf="!emailInput.hasError('required')">E-mail is invalid.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
+
+                    <mat-form-field appearance="outline" hintLabel="Should be at least 6 characters long" fxFlex="70" >
+                        <mat-label>Password</mat-label>
+                        <input
+                                matInput type="password"
+                                placeholder="Your password"
+                                ngModel name="password"
+                                required minlength="6" #pwInput="ngModel"
+                        >
+                        <mat-hint align="end">{{pwInput.value?.length}}/6</mat-hint>
+                        <mat-error>Has to be at least 6 characters</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayout.xs="column" class="button-lay" fxFlex="100">
+                        <mat-checkbox name="agree"fxFlex="50">Remember Me</mat-checkbox>
+                    <button type="submit" mat-raised-button color="primary" fxFlex="20" >Login</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</div>
+
+
