@@ -41,6 +41,21 @@ export class HeaderComponent implements OnInit {
             }, error => console.log(error),
         );
     }
+    onBrowseJob() {
+      this.router.navigate(['/jobs']);
+    }
+    onBrowseCompaies() {
+      this.router.navigate(['/companies']);
+    }
+    onPostResume() {
+      this.router.navigate((['/submit-resume']));
+    }
+    onFindCandidate() {
+      this.router.navigate(['/resumes']);
+    }
+    onPostJob() {
+      this.router.navigate(['/post-job']);
+    }
 
 }
 

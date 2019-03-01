@@ -5,7 +5,6 @@ import {DialogContentExampleDialog, HeaderComponent} from './header/header.compo
 import {MaterailModule} from './materail.module';
 import {SignupComponent} from './auth/signup/signup.component';
 import {LoginComponent} from './auth/login/login.component';
-import {WelcomeComponent} from './welcome/welcome.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SubmitResumeComponent} from './candidates/submit-resume/submit-resume.component';
@@ -40,7 +39,6 @@ import {FooterComponent} from './page/footer/footer.component';
         HeaderComponent,
         SignupComponent,
         LoginComponent,
-        WelcomeComponent,
         SubmitResumeComponent,
         JobsComponent,
         JobsDetailComponent,

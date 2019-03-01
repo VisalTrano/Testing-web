@@ -16,9 +16,9 @@
                             Candidates
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <button mat-menu-item>Browse Jobs</button>
-                    <button mat-menu-item>Browse Companies</button>
-                    <button mat-menu-item>Post a Resume</button>
+                    <button mat-menu-item (click)="onBrowseJob()">Browse Jobs</button>
+                    <button mat-menu-item (click)="onBrowseCompaies()">Browse Companies</button>
+                    <button mat-menu-item (click)="onPostResume()">Post a Resume</button>
                 </mat-expansion-panel>
                 <mat-expansion-panel style="margin-right: 5px">
                     <mat-expansion-panel-header>
@@ -26,8 +26,8 @@
                             Employers
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <button mat-menu-item>Find Candidate</button>
-                    <button mat-menu-item>Post a Job</button>
+                    <button mat-menu-item (click)="onFindCandidate()">Find Candidate</button>
+                    <button mat-menu-item (click)="onPostJob()">Post a Job</button>
                 </mat-expansion-panel>
             </mat-accordion>
 
