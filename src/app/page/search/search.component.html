@@ -1,0 +1,35 @@
+<div fxLayout="row" fxFlex="100">
+    <div fxFlex="20" fxLayout="column" class="page">
+        <div class="page-header">
+            <div class="page-title">
+                <h1 class="primary">Search &amp; Filter</h1>
+            </div>
+        </div>
+        <div class="sidebar-modules">
+            <form fxLayout="column">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label style="text-transform: uppercase">Enter keyword</mat-label>
+                    <input type="text" matInput placeholder=""
+                           name="keyword" ngModel>
+
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label style="text-transform: uppercase">Enter Location</mat-label>
+                    <input type="text" matInput  placeholder=""
+                           name="location" ngModel>
+
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex="50">
+                    <mat-label>Choose Category</mat-label>
+                    <mat-select placeholder="Choose role"  name="ResumeCategoryDetails" ngModel>
+                        <mat-option *ngFor="let category of resumeCategory" [value]="category">
+                            {{category.title}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>Field must no empty</mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="accent" style="text-transform: uppercase;">Search</button>
+            </form>
+        </div>
+    </div>
+</div>

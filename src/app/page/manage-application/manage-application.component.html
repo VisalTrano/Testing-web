@@ -1,0 +1,16 @@
+<h1>RWD List to Table</h1>
+<table class="rwd-table">
+    <tr>
+        <th>Job</th>
+        <th>Date Applied</th>
+        <th>Status</th>
+        <th>Application Message</th>
+    </tr>
+    <tr *ngFor="let app of applications">
+        <td data-th="Job">{{app.job.jobTitle}}</td>
+        <td data-th="Date Applied">{{app.date | date}}</td>
+        <td data-th="Status">{{app.status}}</td>
+        <td data-th="Application Message">{{app.message}}</td>
+    </tr>
+
+</table>

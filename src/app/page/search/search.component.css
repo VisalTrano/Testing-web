@@ -1,0 +1,17 @@
+.page{
+    padding: 5px 10px 5px 5px;
+}
+.page-header{
+    margin-bottom: 30px;
+    padding-bottom: 0!important;
+}
+.page-header .page-title .primary {
+    font-family: "Roboto",sans-serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.2;
+    padding-right: 30px;
+    letter-spacing: -.5px;
+    padding-right: 50px;
+    margin: 0 0 10px 0;
+}

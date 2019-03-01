@@ -1,95 +1,111 @@
-<!--
 <mat-sidenav-container>
-    <mat-sidenav >
-        <mat-toolbar>
 
-            <mat-toolbar-row>
-                <div class="container">
-                    <span>Application Title</span>
-                    <button mat-button [matMenuTriggerFor]="explore">Explore</button>
+        <mat-sidenav [opened]="openedSidenav" #sidenav role="navigation">
+            <mat-accordion>
+                <mat-expansion-panel style="margin-right: 5px">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Explore
+                        </mat-panel-title>
 
-                    <mat-menu #explore="matMenu" >
-                        <button mat-menu-item [matMenuTriggerFor]="category">Category</button>
-                        <button mat-menu-item [matMenuTriggerFor]="company">Company</button>
-                        <button mat-menu-item [matMenuTriggerFor]="tag">Tag</button>
-                        <button mat-menu-item [matMenuTriggerFor]="type">Type</button>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <mat-expansion-panel style="margin-right: 5px">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Candidates
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <button mat-menu-item>Browse Jobs</button>
+                    <button mat-menu-item>Browse Companies</button>
+                    <button mat-menu-item>Post a Resume</button>
+                </mat-expansion-panel>
+                <mat-expansion-panel style="margin-right: 5px">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Employers
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <button mat-menu-item>Find Candidate</button>
+                    <button mat-menu-item>Post a Job</button>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </mat-sidenav>
 
 
-                    </mat-menu>
+    <mat-sidenav-content >
+        <mat-toolbar color="primary" fxLayout="row" class="fixed-header">
+            <div>
+                <button (click)="sidenav.toggle()" f style="background-color: #673ab7; border: none; color: white"
+                        fxHide fxShow.lt-sm>
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>LOGO</div>
+            <div fxHide fxShow.gt-sm>
+                <button mat-button [matMenuTriggerFor]="explore">Explore
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
+                <button mat-button [matMenuTriggerFor]="candidates">Candidates
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
+                <button mat-button [matMenuTriggerFor]="employers">Employers
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
+                <button mat-button (click)="openDialog()">Open dialog</button>
 
-                    <mat-menu #category="matMenu" class="sub-menu">
-                        <button mat-menu-item>Human Resource</button>
-                        <button mat-menu-item>Design& Architecture</button>
-                        <button mat-menu-item>Education& Training</button>
-                        <button mat-menu-item>Engineering</button>
-                        <button mat-menu-item>View All Category</button>
+                <!--Explore List-->
+                <mat-menu #explore="matMenu">
+                    <span class="menu-title">BROWSE BY</span>
+                    <button mat-menu-item [matMenuTriggerFor]="category">Category</button>
+                    <button mat-menu-item [matMenuTriggerFor]="companies">Companies</button>
 
-                    </mat-menu>
-                    <mat-menu #company="matMenu">
-                        <button mat-menu-item>Human Resource</button>
-                        <button mat-menu-item>Design& Architecture</button>
-                        <button mat-menu-item>Education& Training</button>
-                        <button mat-menu-item>Engineering</button>
 
-                    </mat-menu>
-                    <mat-menu #tag="matMenu">
-                        <button mat-menu-item>Human Resource</button>
-                        <button mat-menu-item>Design& Architecture</button>
-                        <button mat-menu-item>Education& Training</button>
-                        <button mat-menu-item>Engineering</button>
 
-                    </mat-menu>
-                    <mat-menu #type="matMenu">
-                        <button mat-menu-item>Human Resource</button>
-                        <button mat-menu-item>Design& Architecture</button>
-                        <button mat-menu-item>Education& Training</button>
-                        <button mat-menu-item>Engineering</button>
+                </mat-menu>
 
-                    </mat-menu>
-                    <button mat-button [matMenuTriggerFor]="candidate">Candidate</button>
-                    <mat-menu #candidate="matMenu">
-                        <button mat-menu-item>Browse Jobs </button>
-                        <button mat-menu-item>Browse Companies</button>
-                        <button mat-menu-item>Explore Jobs</button>
-                        <button mat-menu-item>Submit Resume</button>
-                        <hr>
-                        <span>Dashboard</span>
-                        <button mat-menu-item>Manage Resumes</button>
-                        <button mat-menu-item>Manage Application</button>
-                        <button mat-menu-item>Manage Applications</button>
-                        <button mat-menu-item>Manage Alerts</button>
+                <!--Candidate List-->
+                <mat-menu #candidates="matMenu">
+                    <button mat-menu-item>Browse Jobs</button>
+                    <button mat-menu-item>Browse Companies</button>
+                    <button mat-menu-item>Post a Resume</button>
 
-                    </mat-menu>
+                </mat-menu>
+                <!--Employers List-->
+                <mat-menu #employers="matMenu">
+                    <button mat-menu-item>Find Candidate</button>
+                    <button mat-menu-item>Post a Job</button>
+                </mat-menu>
+                <mat-menu #category="matMenu">
+                    <span class="menu-title">All Categories</span>
+                    <button mat-menu-item>Human Resource</button>
+                    <button mat-menu-item>Design & Architecture</button>
+                    <button mat-menu-item>Education & Training</button>
+                    <button mat-menu-item>Engineering</button>
+                    <button mat-menu-item>Finance & Accounting</button>
+                </mat-menu>
+                <!---->
+                <mat-menu #companies="matMenu">
+                    <span class="menu-title">All Companies</span>
+                    <button mat-menu-item>Apple</button>
+                    <button mat-menu-item>Basecamp</button>
+                    <button mat-menu-item>Cloudsmith</button>
+                </mat-menu>
+                <mat-menu #types="matMenu">
+                    <span class="menu-title">All Types</span>
+                    <button mat-menu-item>Freelance</button>
+                    <button mat-menu-item>Full Time</button>
+                    <button mat-menu-item>Internship</button>
+                </mat-menu>
 
-                    <button mat-button [matMenuTriggerFor]="employers">Employers</button>
-                    <mat-menu #employers="matMenu">
-                        <button mat-menu-item>Find Candidate</button>
-                        <button mat-menu-item>Post A Job</button>
-                        <hr>
-                        <span>Dashboard</span>
-                        <button mat-menu-item>Manage Jobs</button>
-                        <button mat-menu-item>Manage Applications</button>
-                        <button mat-menu-item>Manage Bookmarks</button>
-                        <button mat-menu-item>Manage Alerts</button>
 
-                    </mat-menu>
-
-                    <button mat-button [matMenuTriggerFor]="web_pages">Pages</button>
-                    <mat-menu #web_pages="matMenu">
-                        <button mat-menu-item>News</button>
-                        <button mat-menu-item>Pricing</button>
-                        <button mat-menu-item>Contact</button>
-                        <button mat-menu-item>Privacy Policy</button>
-                        <hr>
-                        <span>External</span>
-                        <button mat-menu-item>Documentation</button>
-
-                    </mat-menu>
-                </div>
-            </mat-toolbar-row>
-
+            </div>
         </mat-toolbar>
-    </mat-sidenav>
 
+        <main style="margin-top: 50px" >
+            <router-outlet></router-outlet>
+        </main>
+
+    </mat-sidenav-content>
 </mat-sidenav-container>
--->

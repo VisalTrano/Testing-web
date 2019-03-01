@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Company} from '../_model/Company';
+import {CompaniesService} from '../_services/companies.service';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+    selector: 'app-welcome',
+    templateUrl: './welcome.component.html',
+    styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+    companies: Company[];
 
-  ngOnInit() {
-  }
+    constructor(public companyService: CompaniesService) {
+    }
+
+    ngOnInit() {
+        this.companyService.companyList().subscribe((companies: Company[]) => {
+                this.companies = companies;
+                console.log(this.companies);
+            },
+            error => {
+                console.log(error);
+            });
+    }
 
 }

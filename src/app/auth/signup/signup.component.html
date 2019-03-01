@@ -16,7 +16,7 @@
 
     <div class="compact-body" fxFlex="70">
         <section class="signup-form">
-            <form fxLayout="column" fxLayoutGap="10px">
+            <form fxLayout="column" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onRegister(f)">
                 <h3 class="title">About Yourself</h3>
                 <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
                     <mat-form-field appearance="outline" fxFlex="50">
@@ -45,16 +45,16 @@
                 <div fxLayout="row" fxLayout.xs="column" fxFlex="100">
                     <mat-form-field appearance="outline" fxFlex="50">
                         <mat-label>Role</mat-label>
-                        <mat-select placeholder="Choose role" required name="selectRole">
-                            <mat-option *ngFor="let role of roles" [value]="role.id">
-                                {{role.value}}
+                        <mat-select placeholder="Choose role" required name="userTypeId" ngModel    >
+                            <mat-option *ngFor="let role of roles" [value]="role.userTypedId">
+                                {{role.title}}
                             </mat-option>
                         </mat-select>
                         <mat-error>Field must no empty</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" fxFlex="50">
                         <mat-label>E-mail</mat-label>
-                        <input matInput type="email" placeholder="Your email" ngModel name="email" email required
+                        <input matInput type="email" placeholder="Your email" ngModel name="mail" email required
                                #emailInput="ngModel">
                         <mat-error *ngIf="emailInput.hasError('required')">Field must no empty</mat-error>
                         <mat-error *ngIf="!emailInput.hasError('required')">E-mail is invalid.</mat-error>

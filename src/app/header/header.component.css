@@ -1,21 +1,19 @@
-.navbar{
-
-    font-family: Lora;
-    font-size: 20px;
+mat-sidenav{
+    width: 300px;
 }
-.site-logo img{
-    height: auto;
-    width: 165px !important;
-}
-.navbar-collapse{
+.menu-title{
     display: inline-block;
+    font-family: "Open Sans",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #b2b2b2;
+    padding: 11px 14px 3px 14px;
+    margin: 2px 22px 5px 22px;
+}
+.fixed-header {
+    top: 0;
+    position: fixed;
+    z-index:999;
 
-    margin:2px 2px;
-}
-.nav-item nav-button{
-    background-color: blue;
-}
-button{
-    background-color: transparent;
-    border: none;
 }
