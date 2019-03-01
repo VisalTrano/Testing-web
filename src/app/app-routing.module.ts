@@ -3,7 +3,6 @@ import {Routes, RouterModule} from '@angular/router';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {LoginComponent} from './auth/login/login.component';
-import {TrainingComponent} from './training/training.component';
 import {SubmitResumeComponent} from './candidates/submit-resume/submit-resume.component';
 import {SearchComponent} from './page/search/search.component';
 import {ManageJobsComponent} from './page/manage-jobs/manage-jobs.component';
@@ -23,7 +22,6 @@ const routes: Routes = [
     {path: '', component: WelcomeComponent},
     {path: 'signup', component: SignupComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'training', component: TrainingComponent},
     {path: 'submit-resume', component: SubmitResumeComponent},
     {path: 'companies', component: CompaniesComponent, children: [
             { path: '', component: CompaniesListComponent},

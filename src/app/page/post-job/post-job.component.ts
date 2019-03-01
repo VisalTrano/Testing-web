@@ -1,10 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Form, FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {PostJobService} from './post-job.service';
-import {CareerLevel, Job, JobCategory, JobCategoryDetails, JobType, Qualification} from '../jobs/job.model';
-import {Company, Industry, Photo} from '../companies/company.model';
+
 import {FileUpload} from 'primeng/primeng';
-import {PhotoService} from '../photo.service';
+import {Photo} from '../../_model/Photo';
+import {CareerLevel, Job, JobCategory, JobCategoryDetails, JobType, Qualification} from '../../_model/Job';
+import {Company, Industry} from '../../_model/Company';
+import {PhotoService} from '../../_services/photo.service';
+
 
 @Component({
   selector: 'app-post-job',

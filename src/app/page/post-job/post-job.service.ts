@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
-import {CareerLevel, Job, JobCategory, JobType, Qualification} from '../jobs/job.model';
-import {Industry} from '../companies/company.model';
+import {CareerLevel, JobCategory, JobType, Qualification} from '../../_model/Job';
+import {Industry} from '../../_model/Company';
 
 @Injectable({
   providedIn: 'root'
