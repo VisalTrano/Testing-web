@@ -30,6 +30,19 @@
                     <button mat-menu-item (click)="onFindCandidate()">Find Candidate</button>
                     <button mat-menu-item (click)="onPostJob()">Post a Job</button>
                 </mat-expansion-panel>
+                <mat-expansion-panel style="margin-right: 5px" *ngIf="userTypeId==0">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Login/Sinup
+                        </mat-panel-title>
+                        <button mat-menu-item (click)="onLogin()">Login</button>
+                        <button mat-menu-item (click)="onSignUp()">SignUp</button>
+                    </mat-expansion-panel-header>
+                    <a href=""></a>
+
+                </mat-expansion-panel>
+                <button *ngIf="userTypeId==1 || userTypeId==2" mat-button fxFlexAlign="end" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> LogOut</button>
+
             </mat-accordion>
 
         </mat-sidenav>
@@ -54,13 +67,19 @@
                 <button *ngIf="userTypeId==2" mat-button [matMenuTriggerFor]="employers">Employers
                     <mat-icon>keyboard_arrow_down</mat-icon>
                 </button>
-                <button *ngIf="userTypeId==0" mat-button (click)="openDialog()">Open dialog</button>
+                <button *ngIf="userTypeId==0" mat-button [matMenuTriggerFor]="login">Login/SignUp</button>
+                <button *ngIf="userTypeId==1 || userTypeId==2" mat-button fxFlexAlign="end" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> LogOut</button>
 
                 <!--Explore List-->
                 <mat-menu #explore="matMenu">
                     <span class="menu-title">BROWSE BY</span>
                     <button mat-menu-item [matMenuTriggerFor]="category">Category</button>
                     <button mat-menu-item [matMenuTriggerFor]="companies">Companies</button>
+                </mat-menu>
+                <mat-menu #login="matMenu">
+
+                    <button mat-menu-item (click)="onLogin()">Login</button>
+                    <button mat-menu-item (click)="onSignUp()">SignUp</button>
                 </mat-menu>
 
                 <!--Candidate List-->
