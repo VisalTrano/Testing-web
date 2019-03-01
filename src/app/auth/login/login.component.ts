@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
             },
             () => {
                 this.openSnackBar('login successful', 'Done');
-                console.log('userId' ,this.authService.decodeToken.nameid);
+                console.log('userId' , this.authService.decodeToken.nameid);
                 this.router.navigate(['/home']);
             }
         );

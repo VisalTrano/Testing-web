@@ -31,11 +31,13 @@ import {ResumeItemComponent} from './resume/resume-list/resume-item/resume-item.
 import {ResumeDetailComponent} from './resume/resume-detail/resume-detail.component';
 import {HomeComponent} from './page/home/home.component';
 import {FooterComponent} from './page/footer/footer.component';
+import {RemoveTag} from './pipe/removeTag';
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        RemoveTag,
         HeaderComponent,
         SignupComponent,
         LoginComponent,
