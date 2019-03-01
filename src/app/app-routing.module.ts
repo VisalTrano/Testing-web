@@ -17,16 +17,14 @@ import {ResumeComponent} from './resume/resume.component';
 import {ResumeListComponent} from './resume/resume-list/resume-list.component';
 import {ResumeDetailComponent} from './resume/resume-detail/resume-detail.component';
 import {HomeComponent} from './page/home/home.component';
+import {PostJobComponent} from './page/post-job/post-job.component';
 
 const routes: Routes = [
-    {path: '', component: WelcomeComponent},
-    {path: 'signup', component: SignupComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'submit-resume', component: SubmitResumeComponent},
-    {path: 'companies', component: CompaniesComponent, children: [
-            { path: '', component: CompaniesListComponent},
-            { path: ':id', component: CompaniesDetailComponent},
-        ]},
+    { path: '' , redirectTo: '/home', pathMatch: 'full'},
+    { path: 'home', component: HomeComponent},
+    { path: 'sign-up', component: SignupComponent},
+    { path: 'login', component: LoginComponent},
+    { path: 'submit-resume', component: SubmitResumeComponent},
     { path: 'jobs', component: JobsComponent, children: [
             { path: '', component: JobsListComponent},
             { path: ':id', component: JobsDetailComponent},
@@ -39,9 +37,9 @@ const routes: Routes = [
             { path: '', component: ResumeListComponent},
             { path: ':id', component: ResumeDetailComponent},
         ]},
-    { path: 'home', component: HomeComponent},
-    {path: 'manage-jobs', component: ManageJobsComponent},
-    {path: 'manage-application', component: ManageApplicationComponent}
+    { path: 'post-job', component: PostJobComponent},
+    { path: 'manage-jobs', component: ManageJobsComponent},
+    { path: 'manage-application', component: ManageApplicationComponent}
 ];
 
 @NgModule({
