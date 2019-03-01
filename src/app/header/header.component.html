@@ -10,24 +10,25 @@
 
                     </mat-expansion-panel-header>
                 </mat-expansion-panel>
-                <mat-expansion-panel style="margin-right: 5px">
+                <mat-expansion-panel style="margin-right: 5px" *ngIf="userTypeId==1">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Candidates
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <button mat-menu-item>Browse Jobs</button>
-                    <button mat-menu-item>Browse Companies</button>
-                    <button mat-menu-item>Post a Resume</button>
+                    <button mat-menu-item (click)="onBrowseJob()">Browse Jobs</button>
+                    <button mat-menu-item (click)="onBrowseCompaies()">Browse Companies</button>
+                    <button mat-menu-item (click)="onPostResume()">Post a Resume</button>
                 </mat-expansion-panel>
-                <mat-expansion-panel style="margin-right: 5px">
+                <mat-expansion-panel style="margin-right: 5px" *ngIf="userTypeId==2">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Employers
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <button mat-menu-item>Find Candidate</button>
-                    <button mat-menu-item>Post a Job</button>
+                    <a href=""></a>
+                    <button mat-menu-item (click)="onFindCandidate()">Find Candidate</button>
+                    <button mat-menu-item (click)="onPostJob()">Post a Job</button>
                 </mat-expansion-panel>
             </mat-accordion>
 
@@ -60,22 +61,18 @@
                     <span class="menu-title">BROWSE BY</span>
                     <button mat-menu-item [matMenuTriggerFor]="category">Category</button>
                     <button mat-menu-item [matMenuTriggerFor]="companies">Companies</button>
-
-
-
                 </mat-menu>
 
                 <!--Candidate List-->
                 <mat-menu #candidates="matMenu">
-                    <button mat-menu-item>Browse Jobs</button>
-                    <button mat-menu-item>Browse Companies</button>
-                    <button mat-menu-item>Post a Resume</button>
-
+                    <button mat-menu-item (click)="onBrowseJob()">Browse Jobs</button>
+                    <button mat-menu-item (click)="onBrowseCompaies()">Browse Companies</button>
+                    <button mat-menu-item (click)="onPostResume()">Post a Resume</button>
                 </mat-menu>
                 <!--Employers List-->
                 <mat-menu #employers="matMenu">
-                    <button mat-menu-item>Find Candidate</button>
-                    <button mat-menu-item>Post a Job</button>
+                    <button mat-menu-item (click)="onFindCandidate()">Find Candidate</button>
+                    <button mat-menu-item (click)="onPostJob()">Post a Job</button>
                 </mat-menu>
                 <mat-menu #category="matMenu">
                     <span class="menu-title">All Categories</span>
@@ -98,14 +95,10 @@
                     <button mat-menu-item>Full Time</button>
                     <button mat-menu-item>Internship</button>
                 </mat-menu>
-
-
             </div>
         </mat-toolbar>
-
         <main style="margin-top: 50px" >
             <router-outlet></router-outlet>
         </main>
-
     </mat-sidenav-content>
 </mat-sidenav-container>
