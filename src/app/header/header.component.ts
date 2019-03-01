@@ -53,6 +53,18 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/post-job']);
     }
 
+    onLogout() {
+        localStorage.removeItem('token');
+        this.router.navigate(['']);
+    }
+
+    onLogin() {
+        this.router.navigate(['login']);
+    }
+
+    onSignUp() {
+        this.router.navigate(['sign-up']);
+    }
 }
 
 @Component({
