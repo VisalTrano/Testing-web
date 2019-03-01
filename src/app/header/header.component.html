@@ -10,7 +10,7 @@
 
                     </mat-expansion-panel-header>
                 </mat-expansion-panel>
-                <mat-expansion-panel style="margin-right: 5px">
+                <mat-expansion-panel style="margin-right: 5px" *ngIf="userTypeId==1">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Candidates
@@ -20,7 +20,7 @@
                     <button mat-menu-item (click)="onBrowseCompaies()">Browse Companies</button>
                     <button mat-menu-item (click)="onPostResume()">Post a Resume</button>
                 </mat-expansion-panel>
-                <mat-expansion-panel style="margin-right: 5px">
+                <mat-expansion-panel style="margin-right: 5px" *ngIf="userTypeId==2">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Employers
@@ -61,9 +61,6 @@
                     <span class="menu-title">BROWSE BY</span>
                     <button mat-menu-item [matMenuTriggerFor]="category">Category</button>
                     <button mat-menu-item [matMenuTriggerFor]="companies">Companies</button>
-
-
-
                 </mat-menu>
 
                 <!--Candidate List-->
@@ -71,7 +68,6 @@
                     <button mat-menu-item (click)="onBrowseJob()">Browse Jobs</button>
                     <button mat-menu-item (click)="onBrowseCompaies()">Browse Companies</button>
                     <button mat-menu-item (click)="onPostResume()">Post a Resume</button>
-
                 </mat-menu>
                 <!--Employers List-->
                 <mat-menu #employers="matMenu">
@@ -99,14 +95,10 @@
                     <button mat-menu-item>Full Time</button>
                     <button mat-menu-item>Internship</button>
                 </mat-menu>
-
-
             </div>
         </mat-toolbar>
-
         <main style="margin-top: 50px" >
             <router-outlet></router-outlet>
         </main>
-
     </mat-sidenav-content>
 </mat-sidenav-container>
