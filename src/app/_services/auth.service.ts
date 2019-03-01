@@ -29,10 +29,26 @@ export class AuthService implements OnInit {
                 if (user) {
                     localStorage.setItem('token', user.token);
                     this.decodeToken = this.jwtHelper.decodeToken(user.token);
-                    console.log(this.decodeToken)
+                    console.log(this.decodeToken);
                 }
             })
         );
+    }
+
+    getToken() {
+        return localStorage.getItem('token');
+    }
+
+    getDecodeToken() {
+        return this.jwtHelper.decodeToken(this.getToken());
+    }
+
+    getUserId() {
+        if (this.getDecodeToken()) {
+            return this.getDecodeToken().nameid;
+        } else {
+            return 0;
+        }
     }
 
     register(model: any) {

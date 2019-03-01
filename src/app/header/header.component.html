@@ -47,13 +47,13 @@
                 <button mat-button [matMenuTriggerFor]="explore">Explore
                     <mat-icon>keyboard_arrow_down</mat-icon>
                 </button>
-                <button mat-button [matMenuTriggerFor]="candidates">Candidates
+                <button mat-button [matMenuTriggerFor]="candidates"  *ngIf="userTypeId==1">Candidates
                     <mat-icon>keyboard_arrow_down</mat-icon>
                 </button>
-                <button mat-button [matMenuTriggerFor]="employers">Employers
+                <button *ngIf="userTypeId==2" mat-button [matMenuTriggerFor]="employers">Employers
                     <mat-icon>keyboard_arrow_down</mat-icon>
                 </button>
-                <button mat-button (click)="openDialog()">Open dialog</button>
+                <button *ngIf="userTypeId==0" mat-button (click)="openDialog()">Open dialog</button>
 
                 <!--Explore List-->
                 <mat-menu #explore="matMenu">
