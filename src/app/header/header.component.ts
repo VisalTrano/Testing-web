@@ -49,6 +49,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/resumes']);
     }
     onPostJob() {
+      console.log('hello');
       this.router.navigate(['/post-job']);
     }
 
