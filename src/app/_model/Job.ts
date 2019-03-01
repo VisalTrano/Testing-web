@@ -14,7 +14,7 @@ export interface Job {
     salary;
     experience: string;
     excerpt: string;
-    employerId: string;
+    employerId: number;
     employer: Employer;
     jobTypeId: number;
     jobType: JobType;
