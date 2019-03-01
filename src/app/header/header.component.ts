@@ -13,8 +13,7 @@ export class HeaderComponent implements OnInit {
     openedSidenav = true;
     panelOpenState = false;
     userTypeId: any;
-    jwtHelper = new JwtHelperService();
-    decodeToken: any;
+
     userId: number;
 
     constructor(private router: Router, private authService: AuthService, public dialog: MatDialog) {
@@ -31,12 +30,8 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.router.events.subscribe((url: any) => {
-                console.log(this.authService.loggedIn());
-                this.decodeToken = this.jwtHelper.decodeToken(localStorage.getItem('token'));
-
-                this.userId = this.decodeToken.nameid;
-                this.userTypeId = this.authService.userType(this.userId).subscribe((data) => console.log('userType', data));
-                console.log(this.userTypeId);
+                this.userId = this.authService.getUserId();
+                this.authService.userType(this.userId).subscribe((data) => this.userTypeId = data);
 
             }, error => console.log(error),
         );
