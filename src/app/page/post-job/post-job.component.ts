@@ -8,6 +8,7 @@ import {CareerLevel, Job, JobCategory, JobCategoryDetails, JobType, Qualificatio
 import {Company, Industry} from '../../_model/Company';
 import {PhotoService} from '../../_services/photo.service';
 import {AuthService} from '../../_services/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class PostJobComponent implements OnInit {
     @ViewChild('fileInput') fileInput: FileUpload;
     photo: Photo;
     jobObj: Job;
+    jobRe: Job;
     companyObj: Company;
     jobType: JobType[];
     jobCategory: JobCategory[];
@@ -34,7 +36,7 @@ export class PostJobComponent implements OnInit {
 
     constructor(protected jobService: PostJobService,
                 // public fb: FormBuilder,
-                protected photoService: PhotoService, private authService: AuthService) {
+                protected photoService: PhotoService, private authService: AuthService, private router: Router) {
     }
 
     ngOnInit() {
@@ -145,6 +147,8 @@ export class PostJobComponent implements OnInit {
         this.companyObj.photoId = photoId;
         this.jobObj.employerId = this.userId;
         const containerObj = {job: this.jobObj, com: this.companyObj};
-        this.jobService.postJob(containerObj).subscribe();
+        this.jobService.postJob(containerObj).subscribe((data: Job) => {
+            this.router.navigate(['jobs/' + data.jobId]);
+        });
     }
 }

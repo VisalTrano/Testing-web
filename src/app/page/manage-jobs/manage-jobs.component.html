@@ -12,12 +12,8 @@
     <mat-expansion-panel *ngFor="let job of jobs" (opened)="onOpenPanel(job.jobId)">
         <mat-expansion-panel-header style="width: 100%;text-transform: uppercase;height: 100px"  [collapsedHeight]="'100px'" >
             <mat-panel-title style="width: 30%;display: block;" >
-                <h3>{{job.jobTitle}}</h3>
-                <ul class="job-dashboard-actions">
-                    <li><a class="job-dashboard-action-edit">Edit</a></li>
-                    <li class="job-dashboard-action-mark_filled"><a class="">Mark filled</a></li>
-                    <li class="job-dashboard-action-delete"><a>delete</a></li>
-                </ul>
+                <a ><h3>{{job.jobTitle}}</h3></a>
+
             </mat-panel-title >
             <mat-panel-description  style="width: 25%;margin: auto">
                 {{job.startDate| date}}
@@ -33,13 +29,13 @@
             <table class="rwd-table">
                 <tr>
                     <th>Candidate</th>
-                    <th>Profession Title</th>
+
                     <th>Date App</th>
                     <th>Message</th>
                 </tr>
                 <tr *ngFor="let app of job.applications">
                     <td data-th="Candidate"> {{app.candidate.firstName + ' ' + app.candidate.lastName}} </td>
-                    <td data-th="Profession Title">{{app.candidate.resumes[0].professionalTitle}}</td>
+
                     <td data-th="Date App">{{app.date| date}}</td>
                     <td data-th="Message">{{app.message}}</td>
                 </tr>

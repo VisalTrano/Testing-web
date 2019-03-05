@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../_services/auth.service';
 import {User} from '../../_model/User';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
+import {combineAll} from 'rxjs/internal/operators';
 
 @Component({
     selector: 'app-signup',
@@ -17,7 +20,7 @@ export class SignupComponent implements OnInit {
 
     ];
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService, private snackBar: MatSnackBar, private router: Router) {
     }
 
     ngOnInit() {
@@ -27,12 +30,25 @@ export class SignupComponent implements OnInit {
 
     onRegister(form: NgForm) {
         this.user = form.value;
-        this.authService.register(this.user).subscribe((data) => {
-                console.log(data);
+        console.log(form.value);
+        this.authService.register(this.user).subscribe((data: User) => {
+                this.user = data;
+                this.user.mail = form.value.mail;
+                this.user.password = form.value.password;
             },
             error => {
                 console.log(error);
+            }, () => {
+                this.openSnackBar('Register successful', 'Done');
+                this.router.navigate(['/home']);
+                this.authService.login(this.user).subscribe();
             });
         console.log(this.user);
+    }
+
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message, action, {
+            duration: 2000,
+        });
     }
 }

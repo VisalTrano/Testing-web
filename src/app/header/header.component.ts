@@ -65,6 +65,14 @@ export class HeaderComponent implements OnInit {
     onSignUp() {
         this.router.navigate(['sign-up']);
     }
+
+    onManageJob() {
+        this.router.navigate(['manage-jobs']);
+    }
+
+    onManageResume() {
+        this.router.navigate(['manage-application']);
+    }
 }
 
 @Component({

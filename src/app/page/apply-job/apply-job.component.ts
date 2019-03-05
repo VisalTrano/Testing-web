@@ -34,6 +34,7 @@ export class ApplyJobComponent implements OnInit {
         this.appObj = {JobId: this.data.data, EmailAddress: this.email, Message: this.message, UserId: this.userId};
         console.log(this.appObj);
         this.postApplication(this.appObj);
+        this.dialogRef.close();
     }
 
     postApplication(obj: any) {
